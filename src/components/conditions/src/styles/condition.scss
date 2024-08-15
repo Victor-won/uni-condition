@@ -1,0 +1,74 @@
+.uni-condition {
+    &__item {
+        min-width: 900px;
+        display: flex;
+        background-color: #f7f7f7;
+        border: 1px dashed #ddd;
+        padding: 10px;
+        margin: 0 0 -1px;
+
+        select,
+        input {
+            font-size: 12px;
+            appearance: none;
+            border: 1px solid #ccc;
+            background: #fff;
+            color: #333;
+            padding: 6px 10px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: all 0.3s;
+            box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.2);
+
+            &:focus {
+                border: 1px solid #0a03eb;
+                box-shadow: inset 1px 1px 2px rgb(10, 3, 235, 0.4);
+                outline: none;
+            }
+        }
+    }
+
+    &__operand {
+        flex: 0 0 36%;
+        display: flex;
+
+        select {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        select:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__operator {
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    &__value {
+        flex: 0 0 36%;
+        display: flex;
+
+        &-operator {
+            display: flex;
+            flex: 0 0 80px;
+            padding: 0 0 0 10px;
+
+            img {
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+
+        &-item {
+            width: 100%;
+            margin: 0 10px 0 0;
+
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+    }
+}
