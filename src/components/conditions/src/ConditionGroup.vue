@@ -27,7 +27,7 @@
                     v-for="(condition, index) in props.conditions.conditions"
                     :key="index"
                     :parentIndex="index"
-                    :condition="condition"
+                    :condition="condition as Single"
                     :getOptions="props.getOptions"
                     :showOperators="true"
                     @remove="removeHandler(index, props.parentIndex)"
@@ -44,6 +44,7 @@ import { computed } from 'vue';
 import Condition from './Condition.vue';
 import { operator, conditionGroupOpt, conditionGroupProps } from './conditionGroup';
 import type { ConditionGroup } from './conditionGroup';
+import { Single } from './condition';
 
 defineOptions(conditionGroupOpt);
 const props = defineProps(conditionGroupProps);

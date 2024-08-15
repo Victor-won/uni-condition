@@ -3,8 +3,8 @@
         <div class="uni-condition__title">{{ props.title }}</div>
         <template v-if="props.conditions">
             <condition-group
-                :conditions="props.conditions"
-                :getOptions="props.getOptions"
+                :conditions="props.conditions as any"
+                :getOptions="props.getOptions as any"
                 :isGroup="isGroup"
                 :add="props.add"
             />
