@@ -64,7 +64,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch } from 'vue-demi';
 import { conditionProps, conditionOptions } from './condition';
 
 // 定义组件信息

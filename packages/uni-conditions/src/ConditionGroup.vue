@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from 'vue-demi';
 import Condition from './Condition.vue';
 import { operator, conditionGroupOpt, conditionGroupProps } from './conditionGroup';
 import type { ConditionGroup } from './conditionGroup';

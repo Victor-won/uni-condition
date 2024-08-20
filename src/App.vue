@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { UniCondition } from './components/conditions';
-import { Condition } from './components/conditions';
-import { single, singleConditions, multipleCondition } from './components/conditions/src/mock';
-import { Single } from './components/conditions/src/condition';
+import { UniCondition, Condition } from 'uni-conditions';
+import "uni-conditions/dist/style.css";
+import { single, singleConditions, multipleCondition } from './mock';
+import { Single } from 'uni-conditions/src/condition';
 
 const condObj = ref<Single>(single);
 const condObj2 = ref(singleConditions);

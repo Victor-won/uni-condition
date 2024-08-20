@@ -1,0 +1,27 @@
+{
+  "name": "uni-conditions",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/uni-conditions.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:vue2": "vite build --mode vue2",
+    "build:vue3": "vite build --mode vue3",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  },
+  "keywords": [],
+  "author": "Victor-won",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.4.1",
+    "@vitejs/plugin-vue": "^5.1.2",
+    "@vitejs/plugin-vue2": "^2.3.1",
+    "typescript": "^5.5.3",
+    "vite-plugin-dts": "^4.0.3",
+    "vue-demi": "^0.14.10",
+    "vue-tsc": "^2.0.29"
+  }
+}

@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import { uniConditionOpt, propsSchema } from './uniCondition.ts';
 import ConditionGroup from './ConditionGroup.vue';
-import { computed } from 'vue';
+import { computed } from 'vue-demi';
 
 defineOptions(uniConditionOpt);
 const emit = defineEmits({});
