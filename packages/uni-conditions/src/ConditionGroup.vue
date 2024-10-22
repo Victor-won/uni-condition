@@ -26,7 +26,7 @@
             @add="addHandler"
         >
           <!-- 插槽模板 -->
-           <!-- eslint-disabled v-slot -->
+          <!-- eslint-disable vue/valid-v-slot -->
           <template v-for="(slot, index) in slotsMap" :key="index" v-slot:[slot]="slotProps">
             <slot :name="slot" v-bind="slotProps"></slot>
           </template>
