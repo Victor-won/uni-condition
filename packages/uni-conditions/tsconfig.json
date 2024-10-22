@@ -11,13 +11,19 @@
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
         "moduleDetection": "force",
+        "noImplicitAny": false,
         "noEmit": true,
         "jsx": "preserve",
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"]
         },
-        "lib": ["esnext", "dom"]
+        "lib": ["esnext", "dom"],
+
+        // declarations
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "types/"
     },
     "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
     "exclude": ["node_modules"]

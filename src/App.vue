@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { UniCondition, Condition } from 'uni-conditions';
-import "uni-conditions/dist/style.css";
+import 'uni-conditions/dist/style.css';
 import { single, singleConditions, multipleCondition } from './mock';
 import { Single } from 'uni-conditions/src/condition';
 
@@ -94,8 +94,7 @@ const getConditionOptions = (curCond: Single, property: string) => {
 <template>
     <uni-condition
         title="条件组"
-        :conditions="condObj2"
-        @update:conditions="(value) => (condObj2 = value)"
+        :conditions.sync="condObj2"
         :add="
             () => ({
                 operand: {
@@ -111,13 +110,22 @@ const getConditionOptions = (curCond: Single, property: string) => {
             })
         "
         :getOptions="getConditionOptions"
-    />
+    >
+        <!-- <template v-slot:factorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:operatorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:valueSlot="{ condition }">
+            {{ condition }}
+        </template> -->
+    </uni-condition>
 
     <uni-condition
         title="多条件组"
         type="MULTIPLE"
-        :conditions="condObj3"
-        @update:conditions="(value) => (condObj3 = value)"
+        :conditions.sync="condObj3"
         :add="
             () => ({
                 operand: {
@@ -133,30 +141,76 @@ const getConditionOptions = (curCond: Single, property: string) => {
             })
         "
         :getOptions="getConditionOptions"
-    />
+    >
+        <template v-slot:tableIdSlot="{ condition }">
+            <div style="background: red; width: 30px; margin-right: 10px"></div>
+            <select name="tableId" v-model="condition.operand.tableId" placeholder="请选择"  style="margin: 0 10px 0 0;">
+                <option
+                    v-for="option in getConditionOptions(condition, 'tableId')"
+                    :key="option.value"
+                    :value="option.value"
+                >
+                    {{ option.label }}
+                </option>
+            </select>
+        </template>
+        <template v-slot:fieldIdSlot="{ condition }">
+            <select name="fieldId" v-model="condition.operand.fieldId" placeholder="请选择">
+                <option
+                    v-for="option in getConditionOptions(condition, 'fieldId')"
+                    :key="option.value"
+                    :value="option.value"
+                >
+                    {{ option.label }}
+                </option>
+            </select>
+        </template>
+        <!-- <template v-slot:factorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:operatorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:valueSlot="{ condition }">
+            {{ condition }}
+        </template> -->
+    </uni-condition>
 
-    <Condition
-        :condition="condObj"
-        @update:condition="(value: Single) => condObj = value"
-        :getOptions="getConditionOptions"
-    />
+    <Condition :condition.sync="condObj" :getOptions="getConditionOptions">
+        <!-- <template v-slot:factorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:operatorSlot="{ condition }">
+            {{ condition }}
+        </template>
+        <template v-slot:valueSlot="{ condition }">
+            {{ condition }}
+        </template> -->
+    </Condition>
 
-    <button style="margin: 20px 0 0;" @click="() => console.log(condObj2)">获取条件</button>
+    <button style="margin: 20px 0 0" @click="() => console.log(condObj2)">获取条件</button>
 </template>
 
-<style scoped>
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
+<style scoped lang="scss">
+select {
+    flex: 1 1 0;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    padding: 6px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all .3s;
+    box-shadow: inset 1px 1px 4px #0003;
 
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
+    &:focus {
+        border: 1px solid #0a03eb;
+        box-shadow: inset 1px 1px 2px rgb(10, 3, 235, 0.4);
+        outline: none;
+    }
 }
 </style>

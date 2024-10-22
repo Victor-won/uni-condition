@@ -1,4 +1,4 @@
-import { App } from 'vue';
+import { App } from 'vue-demi';
 import Condition from './src/Condition.vue';
 import UniCondition from './src/UniCondition.vue';
 

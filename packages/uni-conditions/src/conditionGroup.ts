@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { Single, IOption } from './condition';
+import { Single } from './condition.ts';
 
 export const operator = [
     {
@@ -14,16 +14,6 @@ export const operator = [
 
 export type OperatorType = typeof operator[number]['value'];
 
-export type ConditionGroup = {
-    type: OperatorType;
-    conditions: (Single | ConditionGroup)[];
-};
-
-export const conditionGroupOpt = {
-    name: "ConditionGroup",
-    inheritAttrs: false,
-};
-
 export const conditionGroupProps = {
     isGroup: {
         type: Boolean,
@@ -33,17 +23,21 @@ export const conditionGroupProps = {
         type: Number,
     },
     conditions: {
-        type: Object as PropType<ConditionGroup>,
+        type: Object as PropType<any>,
         default: () => ({
             type: 'AND',
             conditions: [],
         }),
     },
     getOptions: {
-        type: Function as PropType<() => IOption[]>,
+        type: Function as PropType<Function>,
         default: () => [],
     },
     add: {
         type: Function as PropType<() => Single>,
+    },
+    slotProps: {
+        type: Object as PropType<any>,
+        default: () => ({}),
     }
 };
